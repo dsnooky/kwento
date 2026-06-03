@@ -29,12 +29,21 @@ scroll-behavior:smooth;
 --light:#f5f7fa;
 }
 
+body{
 background:
 linear-gradient(
-rgba(255,255,255,0.85),
-rgba(255,255,255,0.90)
+135deg,
+rgba(13,92,43,0.05),
+rgba(212,175,55,0.08)
 ),
-url('images/memorial-bg.jpg') center/cover fixed;
+url('images/background-pattern.png');
+background-size:cover;
+background-attachment:fixed;
+color:#333;
+overflow-x:hidden;
+position:relative;
+}
+
 /* Animated Floating Background */
 
 body::before{
@@ -79,7 +88,6 @@ transform:translateY(-20px) scale(1.05);
 transform:translateY(0px) scale(1);
 }
 }
-
 /* NAVBAR */
 
 header{
