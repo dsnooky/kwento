@@ -1,89 +1,172 @@
+<style>
+:root{
+    --primary:#0f4c81;
+    --secondary:#1c75bc;
+    --accent:#00a8ff;
+    --light:#f5f9ff;
+    --white:#ffffff;
+    --shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    linear-gradient(rgba(15,76,129,.90),
+    rgba(28,117,188,.85)),
+    url('https://images.unsplash.com/photo-1554224155-6726b3ff858f');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    margin:0;
+    padding:40px 20px;
+}
+
+.form-wrapper{
+    max-width:1200px;
+    margin:auto;
+}
+
+.form-header{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.form-header h1{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.form-header p{
+    font-size:1rem;
+    opacity:.9;
+}
+
+#memberForm{
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:var(--shadow);
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+#memberForm input,
+#memberForm select{
+    width:100%;
+    padding:14px 18px;
+    border:2px solid #e5eaf2;
+    border-radius:12px;
+    font-size:15px;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+#memberForm input:focus,
+#memberForm select:focus{
+    border-color:var(--secondary);
+    outline:none;
+    box-shadow:0 0 0 4px rgba(28,117,188,.15);
+}
+
+.full-width{
+    grid-column:span 2;
+}
+
+button{
+    grid-column:span 2;
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+    color:white;
+    border:none;
+    padding:18px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(15,76,129,.25);
+}
+
+@media(max-width:768px){
+
+#memberForm{
+    grid-template-columns:1fr;
+    padding:25px;
+}
+
+button,
+.full-width{
+    grid-column:span 1;
+}
+
+.form-header h1{
+    font-size:2rem;
+}
+}
+</style>
+
+<div class="form-wrapper">
+
+<div class="form-header">
+    <h1>PAGZ Credit Cooperative</h1>
+    <p>Membership Application Form</p>
+</div>
+
 <form id="memberForm">
 
-<input type="text"
-name="Last Name"
-placeholder="Last Name"
-required>
+<input type="text" name="Last Name" placeholder="Last Name" required>
 
-<input type="text"
-name="First Name"
-placeholder="First Name"
-required>
+<input type="text" name="First Name" placeholder="First Name" required>
 
-<input type="text"
-name="Middle Name"
-placeholder="Middle Name"
-required>
+<input type="text" name="Middle Name" placeholder="Middle Name" required>
 
-<input type="text"
-name="Residence Address"
-placeholder="Residence Address"
-required>
+<input type="text" name="Residence Address" placeholder="Residence Address" required>
 
-<input type="tel"
-name="phone"
-placeholder="Phone Number"
-required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
-<input type="text"
-name="Occupation"
-placeholder="Occupation"
-required>
+<input type="text" name="Occupation" placeholder="Occupation" required>
 
-<input type="text"
-name="birthday"
-placeholder="Birthday"
-required>
+<input type="date" name="birthday" required>
 
-<input type="text"
-name="birthplace"
-placeholder="Birthplace"
-required>
+<input type="text" name="birthplace" placeholder="Birthplace" required>
 
-<input type="text"
-name="age"
-placeholder="Age"
-required>
+<input type="number" name="age" placeholder="Age" required>
 
-<input type="text"
-name="sex"
-placeholder="Sex"
-required>
+<select name="sex">
+    <option value="">Select Sex</option>
+    <option>Male</option>
+    <option>Female</option>
+</select>
 
-<input type="text"
-name="civil status"
-placeholder="Civil Status"
-required>
+<select name="civil status">
+    <option value="">Civil Status</option>
+    <option>Single</option>
+    <option>Married</option>
+    <option>Widowed</option>
+    <option>Separated</option>
+</select>
 
-<input type="text"
-name="beneficiary"
-placeholder="Beneficiary"
-required>
+<input type="text" name="beneficiary" placeholder="Beneficiary" required>
 
-<input type="text"
-name="age(beneficiary)"
-placeholder="Age of Beneficiary"
-required>
+<input type="number" name="age(beneficiary)" placeholder="Age of Beneficiary" required>
 
-<input type="text"
-name="relation"
-placeholder="Relation"
-required>
+<input type="text" name="relation" placeholder="Relation to Beneficiary" required>
 
-<input type="text"
-name="facebook"
-placeholder="facebook"
-required>
+<input type="text" name="facebook" placeholder="Facebook Profile Link" required>
 
-<input type="text"
-name="contact person"
-placeholder="Contact Person"
-required>
+<input type="text" name="contact person" placeholder="Emergency Contact Person" required>
 
-<input type="email"
-name="email"
-placeholder="Email Address"
-required>
+<input type="email" name="email" placeholder="Email Address" required>
 
 <select name="membership">
     <option>Regular Member</option>
@@ -91,10 +174,9 @@ required>
 </select>
 
 <button type="submit">
-Submit Application
+    Submit Application
 </button>
 
 </form>
-Sent
-Compose
-Write to
+
+</div>
