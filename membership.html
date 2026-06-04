@@ -256,10 +256,34 @@ form.addEventListener("submit", e => {
 
     .then(data => {
 
+    if(data === "SUCCESS") {
+
         message.style.display = "block";
         message.className = "success";
         message.innerHTML =
         "✅ Application submitted successfully!";
+
+        form.reset();
+
+    } else if(data === "DUPLICATE") {
+
+        message.style.display = "block";
+        message.className = "error";
+        message.innerHTML =
+        "⚠ Email or Phone Number already exists.";
+
+    } else {
+
+        message.style.display = "block";
+        message.className = "error";
+        message.innerHTML = data;
+
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = "Submit Application";
+
+})
 
         form.reset();
 
