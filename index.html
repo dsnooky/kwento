@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -18,99 +18,91 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 :root{
 --primary:#0d5c2b;
 --secondary:#D4AF37;
---white:#fff;
---dark:#111827;
---light:#f5f7fa;
+--white:#ffffff;
+--dark:#0f172a;
+--light:#f8fafc;
+--shadow:0 15px 40px rgba(0,0,0,.10);
 }
 
 body{
+overflow-x:hidden;
 background:
 linear-gradient(
 135deg,
-rgba(13,92,43,0.05),
-rgba(212,175,55,0.08)
-),
-url('images/background-pattern.png');
-background-size:cover;
-background-attachment:fixed;
-color:#333;
-overflow-x:hidden;
-position:relative;
-}
-
-/* Animated Floating Background */
-
-body::before{
-content:'';
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%, rgba(212,175,55,0.12), transparent 25%),
-radial-gradient(circle at 80% 30%, rgba(13,92,43,0.10), transparent 30%),
-radial-gradient(circle at 50% 80%, rgba(212,175,55,0.10), transparent 25%);
-animation:floatBg 18s ease-in-out infinite;
-z-index:-2;
-}
-
-body::after{
-content:'';
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:
-linear-gradient(
-to bottom,
-rgba(255,255,255,0.85),
-rgba(255,255,255,0.92)
+rgba(13,92,43,.04),
+rgba(212,175,55,.08)
 );
-z-index:-1;
+color:#333;
 }
 
-@keyframes floatBg{
-0%{
-transform:translateY(0px) scale(1);
+.container{
+width:100%;
+max-width:1300px;
+margin:auto;
+padding:0 20px;
 }
-50%{
-transform:translateY(-20px) scale(1.05);
+
+/* ==========================
+BACKGROUND EFFECTS
+========================== */
+
+.bg-shape{
+position:fixed;
+border-radius:50%;
+filter:blur(100px);
+z-index:-1;
+opacity:.2;
 }
-100%{
-transform:translateY(0px) scale(1);
+
+.bg1{
+width:350px;
+height:350px;
+background:#0d5c2b;
+top:-100px;
+left:-100px;
 }
+
+.bg2{
+width:400px;
+height:400px;
+background:#D4AF37;
+bottom:-150px;
+right:-100px;
 }
-/* NAVBAR */
+
+/* ==========================
+HEADER
+========================== */
 
 header{
 position:fixed;
-width:100%;
 top:0;
+left:0;
+width:100%;
 z-index:1000;
 background:rgba(255,255,255,.95);
-backdrop-filter:blur(10px);
-box-shadow:0 2px 15px rgba(0,0,0,.08);
+backdrop-filter:blur(15px);
+box-shadow:0 5px 25px rgba(0,0,0,.06);
 }
 
 .navbar{
-max-width:1200px;
-margin:auto;
-padding:15px 20px;
+height:80px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 }
 
 .logo{
-font-size:1.5rem;
+font-size:1.8rem;
 font-weight:800;
 color:var(--primary);
 }
@@ -121,13 +113,13 @@ color:var(--secondary);
 
 .nav-links{
 display:flex;
-gap:25px;
+gap:30px;
 }
 
 .nav-links a{
 text-decoration:none;
 color:#333;
-font-weight:500;
+font-weight:600;
 transition:.3s;
 }
 
@@ -135,50 +127,99 @@ transition:.3s;
 color:var(--primary);
 }
 
+.menu-btn{
+display:none;
+font-size:1.5rem;
+cursor:pointer;
+}
+
 .btn{
-background:var(--primary);
-color:#fff;
-padding:12px 25px;
+display:inline-block;
+padding:14px 28px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
 transition:.3s;
 }
 
-.btn:hover{
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+background:#0a4a22;
+}
+
+.btn-secondary{
 background:var(--secondary);
+color:#111;
+}
+
+.btn-secondary:hover{
 transform:translateY(-3px);
 }
 
-/* HERO */
+/* ==========================
+HERO
+========================== */
 
 .hero{
-height:100vh;
+min-height:100vh;
+
 background:
-linear-gradient(rgba(0,0,0,.55),
-rgba(0,0,0,.55)),
-url('images/hero.jpg') center/cover;
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.55)
+),
+url('images/hero.jpg');
+
+background-size:cover;
+background-position:center;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 text-align:center;
 color:white;
-padding:20px;
+
+padding-top:80px;
 }
 
 .hero-content{
 max-width:900px;
+padding:20px;
+animation:fadeUp 1s ease;
+}
+
+.hero-badge{
+display:inline-block;
+padding:10px 18px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+border-radius:50px;
+margin-bottom:20px;
+font-size:.9rem;
 }
 
 .hero h1{
-font-size:4rem;
+font-size:4.5rem;
 font-weight:800;
+line-height:1.1;
 margin-bottom:20px;
+}
+
+.hero h1 span{
+color:var(--secondary);
 }
 
 .hero p{
 font-size:1.2rem;
-margin-bottom:30px;
+line-height:1.8;
+margin-bottom:35px;
+opacity:.95;
 }
 
 .hero-buttons{
@@ -188,286 +229,315 @@ gap:20px;
 flex-wrap:wrap;
 }
 
-.btn-secondary{
-background:var(--secondary);
-color:#111;
-padding:12px 25px;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-}
-
-/* SECTION */
+/* ==========================
+SECTION
+========================== */
 
 section{
-padding:90px 8%;
+padding:100px 0;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:60px;
 }
 
 .section-title h2{
-font-size:2.5rem;
+font-size:2.8rem;
 color:var(--primary);
+margin-bottom:10px;
 }
 
 .section-title p{
 color:#666;
+font-size:1.05rem;
 }
 
-/* STATS */
+/* ==========================
+STATS
+========================== */
 
 .stats{
+margin-top:-80px;
+position:relative;
+z-index:50;
+}
+
+.stats-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.stat-box{
-background:#fff;
+.stat-card{
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(15px);
+
 padding:35px;
 text-align:center;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+border-radius:20px;
+box-shadow:var(--shadow);
+
+transition:.3s;
 }
 
-.stat-box h3{
-font-size:2.5rem;
+.stat-card:hover{
+transform:translateY(-10px);
+}
+
+.stat-card i{
+font-size:2rem;
+color:var(--secondary);
+margin-bottom:15px;
+}
+
+.stat-card h3{
+font-size:2.8rem;
 color:var(--primary);
 }
 
-/* SERVICES */
+.stat-card p{
+color:#666;
+}
+
+/* ==========================
+ABOUT
+========================== */
+
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:60px;
+align-items:center;
+}
+
+.about-image{
+position:relative;
+}
+
+.about-image img{
+width:100%;
+height:500px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:var(--shadow);
+}
+
+.experience-box{
+position:absolute;
+bottom:20px;
+left:20px;
+
+background:white;
+padding:20px 25px;
+border-radius:15px;
+box-shadow:var(--shadow);
+}
+
+.experience-box h3{
+font-size:2rem;
+color:var(--primary);
+}
+
+.about-content h2{
+font-size:2.7rem;
+color:var(--primary);
+margin-bottom:20px;
+}
+
+.about-content p{
+line-height:1.9;
+margin-bottom:15px;
+color:#555;
+}
+
+.about-features{
+margin-top:30px;
+display:grid;
+gap:15px;
+}
+
+.about-features div{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:600;
+}
+
+.about-features i{
+color:var(--secondary);
+}
+
+/* ==========================
+SERVICES
+========================== */
+
+.services{
+background:white;
+}
 
 .services-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
 .service-card{
-background:#fff;
+background:white;
 padding:35px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.3s;
+border-radius:25px;
+box-shadow:var(--shadow);
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.service-card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:5px;
+background:linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
 }
 
 .service-card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
 }
 
-.service-card i{
-font-size:40px;
-color:var(--primary);
-margin-bottom:20px;
+.service-icon{
+width:80px;
+height:80px;
+border-radius:20px;
+background:
+linear-gradient(
+135deg,
+var(--primary),
+#15763a
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+margin-bottom:25px;
+}
+
+.service-icon i{
+font-size:2rem;
+color:white;
 }
 
 .service-card h3{
 margin-bottom:15px;
-}
-
-/* ABOUT */
-
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
-
-.about img{
-width:100%;
-border-radius:20px;
-}
-
-.about h2{
-color:var(--primary);
-margin-bottom:20px;
-}
-
-/* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
-
-.gallery img{
-width:100%;
-height:280px;
-object-fit:cover;
-border-radius:15px;
-transition:.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* LOTS */
-
-.lots{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.lot-card{
-background:#fff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-text-align:center;
-}
-
-.lot-card h3{
 color:var(--primary);
 }
 
-.price{
-font-size:2.5rem;
-font-weight:800;
-color:var(--secondary);
-margin:20px 0;
+.service-card p{
+line-height:1.8;
+color:#666;
 }
 
-/* CTA */
+/* ==========================
+ANIMATIONS
+========================== */
 
-.cta{
-background:
-linear-gradient(rgba(13,92,43,.9),
-rgba(13,92,43,.9)),
-url('images/cta.jpg') center/cover;
-text-align:center;
-color:white;
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
 }
 
-.cta h2{
-font-size:3rem;
-margin-bottom:20px;
+to{
+opacity:1;
+transform:translateY(0);
 }
 
-/* CONTACT */
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
 }
 
-.contact-info{
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 20px rgba(0,0,0,.08);
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+.hero h1{
+font-size:3.5rem;
 }
 
-.contact-form{
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-.contact-form input,
-.contact-form textarea{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:10px;
-}
-
-.contact-form button{
-width:100%;
-padding:15px;
-background:var(--primary);
-border:none;
-color:white;
-font-weight:600;
-border-radius:10px;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-background:#111827;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-.socials{
-margin-top:15px;
-}
-
-.socials a{
-color:white;
-margin:0 10px;
-font-size:20px;
-}
-
-/* FLOATING */
-
-.floating{
-position:fixed;
-right:20px;
-bottom:20px;
-display:flex;
-flex-direction:column;
-gap:15px;
-z-index:999;
-}
-
-.float-btn{
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:24px;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,.25);
-}
-
-.messenger{
-background:#0084ff;
-}
-
-.phone{
-background:#0d5c2b;
 }
 
 @media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
 
 .hero h1{
 font-size:2.5rem;
 }
 
-.about,
-.contact-grid{
-grid-template-columns:1fr;
+.hero p{
+font-size:1rem;
 }
 
-.nav-links{
-display:none;
+.section-title h2{
+font-size:2rem;
+}
+
+.about-image img{
+height:350px;
+}
+
+.stats{
+margin-top:-50px;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero h1{
+font-size:2rem;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
 }
 
 }
 
 </style>
 </head>
+
 <body>
 
+<div class="bg-shape bg1"></div>
+<div class="bg-shape bg2"></div>
+
 <header>
-<div class="navbar">
-<div class="logo">PAGZ <span>Cooperative</span></div>
+<div class="container">
+
+<nav class="navbar">
+
+<div class="logo">
+PAGZ <span>Cooperative</span>
+</div>
 
 <div class="nav-links">
 <a href="#about">About</a>
@@ -476,82 +546,165 @@ display:none;
 <a href="#contact">Contact</a>
 </div>
 
-<a href="https://web.facebook.com/ddsnooky" class="btn">Inquire Now</a>
+<div class="menu-btn">
+<i class="fas fa-bars"></i>
+</div>
+
+<a href="https://web.facebook.com/ddsnooky"
+class="btn btn-primary">
+Inquire Now
+</a>
+
+</nav>
+
 </div>
 </header>
+
+<!-- HERO -->
 
 <section class="hero">
 
 <div class="hero-content">
 
-<h1>Your Partner In Financial Growth & Security</h1>
+<div class="hero-badge">
+Trusted Cooperative • Financial Growth • Memorial Care
+</div>
+
+<h1>
+Your Partner In
+<span>Financial Growth</span>
+& Security
+</h1>
 
 <p>
-Affordable loans, memorial care,
-burial assistance and memorial garden investments
+Affordable loans, membership benefits,
+burial assistance, memorial care, and
+memorial garden investment opportunities
 for every Filipino family.
 </p>
 
 <div class="hero-buttons">
-<a href="#contact" class="btn">Become A Member</a>
-<a href="#garden" class="btn-secondary">Explore Memorial Garden</a>
+
+<a href="#contact"
+class="btn btn-primary">
+Become A Member
+</a>
+
+<a href="#garden"
+class="btn btn-secondary">
+Explore Memorial Garden
+</a>
+
 </div>
 
 </div>
 
 </section>
 
-<section>
+<!-- STATS -->
 
-<div class="stats">
+<section class="stats">
 
-<div class="stat-box">
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<i class="fas fa-calendar-check"></i>
 <h3>20+</h3>
 <p>Years of Service</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-card">
+<i class="fas fa-building"></i>
 <h3>5+</h3>
 <p>Branches</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-card">
+<i class="fas fa-users"></i>
 <h3>1000+</h3>
 <p>Families Served</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-card">
+<i class="fas fa-heart"></i>
 <h3>100%</h3>
 <p>Member Focused</p>
 </div>
 
 </div>
 
+</div>
+
 </section>
+
+<!-- ABOUT -->
 
 <section id="about">
 
-<div class="about">
+<div class="container">
 
-<img src="wrfretet.JPG">
+<div class="about-grid">
 
-<div>
+<div class="about-image">
 
-<h2>About PAGZ</h2>
+<img
+src="wrfretet.JPG"
+alt="PAGZ Cooperative"
+loading="lazy">
+
+<div class="experience-box">
+<h3>20+</h3>
+<p>Years Experience</p>
+</div>
+
+</div>
+
+<div class="about-content">
+
+<h2>About PAGZ Credit Cooperative</h2>
 
 <p>
 PAGZ Credit Cooperative provides affordable
 financial solutions, membership benefits,
-memorial care, burial assistance and memorial
-garden investment opportunities.
+memorial care, burial assistance, and
+memorial garden investment opportunities
+for Filipino families.
 </p>
-
-<br>
 
 <p>
-Our mission is to secure the future of Filipino
-families through trusted community-based services.
+We are committed to helping members achieve
+financial stability while ensuring peace of
+mind through trusted memorial services and
+community-centered support.
 </p>
+
+<div class="about-features">
+
+<div>
+<i class="fas fa-check-circle"></i>
+Affordable Loan Programs
+</div>
+
+<div>
+<i class="fas fa-check-circle"></i>
+Memorial Assistance Benefits
+</div>
+
+<div>
+<i class="fas fa-check-circle"></i>
+Family Protection Programs
+</div>
+
+<div>
+<i class="fas fa-check-circle"></i>
+Community-Based Financial Support
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -559,115 +712,281 @@ families through trusted community-based services.
 
 </section>
 
-<section id="services">
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<div class="container">
 
 <div class="section-title">
 <h2>Our Services</h2>
-<p>Everything you need under one trusted organization</p>
+<p>
+Everything You Need Under One Trusted Organization
+</p>
 </div>
 
 <div class="services-grid">
 
 <div class="service-card">
+
+<div class="service-icon">
 <i class="fas fa-hand-holding-dollar"></i>
+</div>
+
 <h3>Loan Services</h3>
-<p>Business, personal, educational and emergency loans.</p>
+
+<p>
+Business loans, personal loans,
+educational assistance and emergency
+financial support for members.
+</p>
+
 </div>
 
 <div class="service-card">
+
+<div class="service-icon">
 <i class="fas fa-users"></i>
-<h3>Membership</h3>
-<p>Exclusive cooperative benefits and financial assistance.</p>
+</div>
+
+<h3>Membership Benefits</h3>
+
+<p>
+Exclusive cooperative programs,
+financial assistance and member
+privileges designed for long-term growth.
+</p>
+
 </div>
 
 <div class="service-card">
+
+<div class="service-icon">
 <i class="fas fa-cross"></i>
+</div>
+
 <h3>Burial Services</h3>
-<p>Complete memorial and burial arrangements.</p>
+
+<p>
+Reliable memorial and burial assistance
+to support families during difficult times.
+</p>
+
 </div>
 
 <div class="service-card">
+
+<div class="service-icon">
 <i class="fas fa-tree"></i>
+</div>
+
 <h3>Memorial Garden</h3>
-<p>Peaceful resting place for your loved ones.</p>
+
+<p>
+A peaceful and dignified resting place
+for loved ones with flexible ownership options.
+</p>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
+<!-- MEMORIAL GARDEN -->
 
 <section id="garden">
 
+<div class="container">
+
 <div class="section-title">
 <h2>PAGZ Memorial Garden</h2>
-<p>A Place Of Peace & Remembrance</p>
+<p>
+A Place of Peace, Remembrance, and Lasting Legacy
+</p>
 </div>
 
-<div class="gallery">
+<div class="gallery-grid">
 
-<img src="590353160_1392297366068050_8263280608294902817_n.png">
-<img src="710496682_878292348646018_1449358132366079604_n.png">
-<img src="714243112_4483107311927966_387911546238256465_n.png">
-<img src="715375745_2399618287112324_3744430107847581026_n.png">
+<div class="gallery-card">
+<img src="590353160_1392297366068050_8263280608294902817_n.png"
+loading="lazy"
+alt="PAGZ Memorial Garden">
+<div class="gallery-overlay">
+<h3>Memorial Landscape</h3>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="710496682_878292348646018_1449358132366079604_n.png"
+loading="lazy"
+alt="PAGZ Memorial Garden">
+<div class="gallery-overlay">
+<h3>Garden View</h3>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="714243112_4483107311927966_387911546238256465_n.png"
+loading="lazy"
+alt="PAGZ Memorial Garden">
+<div class="gallery-overlay">
+<h3>Peaceful Environment</h3>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="715375745_2399618287112324_3744430107847581026_n.png"
+loading="lazy"
+alt="PAGZ Memorial Garden">
+<div class="gallery-overlay">
+<h3>Investment Opportunity</h3>
+</div>
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<section>
+<!-- LOT OPTIONS -->
+
+<section class="lot-section">
+
+<div class="container">
 
 <div class="section-title">
-<h2>Lot Options</h2>
+<h2>Memorial Lot Options</h2>
+<p>Flexible plans designed for every family</p>
 </div>
 
-<div class="lots">
+<div class="lots-grid">
 
 <div class="lot-card">
+
+<div class="lot-icon">
+<i class="fas fa-leaf"></i>
+</div>
+
 <h3>Single Distinctive Lot</h3>
-<div class="price">₱825/mo</div>
-<p>1m x 2.5m</p>
-<p>Maximum of 2 bodies</p>
+
+<div class="lot-price">
+₱825<span>/month</span>
 </div>
 
-<div class="lot-card">
+<ul>
+<li>1m x 2.5m Lot Size</li>
+<li>Maximum of 2 Bodies</li>
+<li>Transferable Ownership</li>
+<li>Flexible Payment Terms</li>
+</ul>
+
+<a href="#contact" class="btn btn-primary">
+Inquire Now
+</a>
+
+</div>
+
+<div class="lot-card featured">
+
+<div class="badge">
+POPULAR
+</div>
+
+<div class="lot-icon">
+<i class="fas fa-tree"></i>
+</div>
+
 <h3>Double Distinctive Lot</h3>
-<div class="price">Flexible</div>
-<p>2m x 2.5m</p>
-<p>Maximum of 4 bodies</p>
+
+<div class="lot-price">
+Flexible
+</div>
+
+<ul>
+<li>2m x 2.5m Lot Size</li>
+<li>Maximum of 4 Bodies</li>
+<li>Family Ownership</li>
+<li>Long-Term Investment</li>
+</ul>
+
+<a href="#contact" class="btn btn-secondary">
+Learn More
+</a>
+
 </div>
 
 <div class="lot-card">
+
+<div class="lot-icon">
+<i class="fas fa-building"></i>
+</div>
+
 <h3>Apartment Niche</h3>
-<div class="price">Available</div>
-<p>2.5 sqm structure</p>
-<p>Secure interment facility</p>
+
+<div class="lot-price">
+Available
+</div>
+
+<ul>
+<li>2.5 sqm Structure</li>
+<li>Secure Facility</li>
+<li>Well Maintained</li>
+<li>Accessible Location</li>
+</ul>
+
+<a href="#contact" class="btn btn-primary">
+Reserve Now
+</a>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
+
+<!-- CTA -->
 
 <section class="cta">
 
-<h2>Secure Your Family's Future Today</h2>
+<div class="container">
+
+<div class="cta-content">
+
+<h2>
+Secure Your Family's Future Today
+</h2>
 
 <p>
-Join PAGZ Cooperative and enjoy financial security,
-peace of mind and trusted memorial care.
+Join PAGZ Credit Cooperative and enjoy
+financial security, memorial benefits,
+and peace of mind for your loved ones.
 </p>
 
-<br>
-
-<a href="#contact" class="btn-secondary">
-Get Started Today
+<a href="#contact"
+class="btn btn-secondary">
+Become A Member Today
 </a>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact">
+
+<div class="container">
 
 <div class="section-title">
 <h2>Contact Us</h2>
+<p>We're here to assist you</p>
 </div>
 
 <div class="contact-grid">
@@ -677,16 +996,28 @@ Get Started Today
 <h3>Main Office</h3>
 
 <p>
+<i class="fas fa-location-dot"></i>
 Dela Roca Building,
 Rizal Street,
 Poblacion 1,
-San Jose Occidental Mindoro
+San Jose,
+Occidental Mindoro
 </p>
 
-<br>
+<p>
+<i class="fas fa-phone"></i>
+0962-092-6818
+</p>
 
-<p><strong>Phone:</strong> 0962-092-6818</p>
-<p><strong>Email:</strong> dsnookyd@gmail.com</p>
+<p>
+<i class="fas fa-envelope"></i>
+dsnookyd@gmail.com
+</p>
+
+<p>
+<i class="fas fa-clock"></i>
+Monday - Saturday
+</p>
 
 </div>
 
@@ -694,13 +1025,25 @@ San Jose Occidental Mindoro
 
 <form>
 
-<input type="text" placeholder="Full Name">
+<input
+type="text"
+placeholder="Full Name"
+required>
 
-<input type="email" placeholder="Email Address">
+<input
+type="email"
+placeholder="Email Address"
+required>
 
-<input type="text" placeholder="Phone Number">
+<input
+type="text"
+placeholder="Phone Number"
+required>
 
-<textarea rows="5" placeholder="Your Message"></textarea>
+<textarea
+rows="6"
+placeholder="Your Message"
+required></textarea>
 
 <button type="submit">
 Send Inquiry
@@ -712,31 +1055,349 @@ Send Inquiry
 
 </div>
 
+</div>
+
 </section>
 
+<!-- FOOTER -->
+
 <footer>
+
+<div class="container">
 
 <h3>PAGZ Credit Cooperative</h3>
 
 <p>
-Your Partner In Financial Growth & Security
+Your Partner in Financial Growth & Security
 </p>
 
-<div class="socials">
-<a href="https://web.facebook.com/ddsnooky"><i class="fab fa-facebook-f"></i></a>
-<a href="https://web.facebook.com/ddsnooky"><i class="fas fa-envelope"></i></a>
-<a href="https://web.facebook.com/ddsnooky"><i class="fas fa-phone"></i></a>
+<div class="footer-socials">
+
+<a href="https://web.facebook.com/ddsnooky">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="mailto:dsnookyd@gmail.com">
+<i class="fas fa-envelope"></i>
+</a>
+
+<a href="tel:09620926818">
+<i class="fas fa-phone"></i>
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 PAGZ Credit Cooperative.
+All Rights Reserved.
+</p>
+
 </div>
 
 </footer>
 
-<div class="floating">
+<!-- FLOATING MESSENGER -->
 
-<a href="https://web.facebook.com/ddsnooky" class="float-btn messenger">
+<div class="floating-buttons">
+
+<a
+href="https://web.facebook.com/ddsnooky"
+target="_blank"
+class="floating messenger">
+
 <i class="fab fa-facebook-messenger"></i>
+
 </a>
 
 </div>
+
+<!-- ADDITIONAL STYLES -->
+
+<style>
+
+.gallery-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.gallery-card{
+position:relative;
+overflow:hidden;
+border-radius:25px;
+box-shadow:var(--shadow);
+}
+
+.gallery-card img{
+width:100%;
+height:300px;
+object-fit:cover;
+display:block;
+transition:.5s;
+}
+
+.gallery-card:hover img{
+transform:scale(1.08);
+}
+
+.gallery-overlay{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:20px;
+color:white;
+
+background:
+linear-gradient(
+transparent,
+rgba(0,0,0,.8)
+);
+}
+
+.lot-section{
+background:#f8fafc;
+}
+
+.lots-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.lot-card{
+background:white;
+padding:40px 30px;
+border-radius:25px;
+text-align:center;
+box-shadow:var(--shadow);
+position:relative;
+transition:.4s;
+}
+
+.lot-card:hover{
+transform:translateY(-10px);
+}
+
+.featured{
+border:3px solid var(--secondary);
+}
+
+.badge{
+position:absolute;
+top:-15px;
+left:50%;
+transform:translateX(-50%);
+
+background:var(--secondary);
+padding:8px 18px;
+border-radius:50px;
+font-size:.8rem;
+font-weight:700;
+}
+
+.lot-icon{
+font-size:2.5rem;
+color:var(--primary);
+margin-bottom:20px;
+}
+
+.lot-price{
+font-size:2.5rem;
+font-weight:800;
+color:var(--secondary);
+margin:20px 0;
+}
+
+.lot-price span{
+font-size:1rem;
+color:#666;
+}
+
+.lot-card ul{
+list-style:none;
+margin:25px 0;
+}
+
+.lot-card ul li{
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+
+.cta{
+background:
+linear-gradient(
+135deg,
+rgba(13,92,43,.95),
+rgba(7,71,31,.95)
+);
+
+color:white;
+text-align:center;
+}
+
+.cta-content{
+max-width:800px;
+margin:auto;
+}
+
+.cta h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:1.1rem;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.contact-info,
+.contact-form{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:var(--shadow);
+}
+
+.contact-info p{
+margin:20px 0;
+line-height:1.8;
+}
+
+.contact-info i{
+color:var(--primary);
+margin-right:10px;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:12px;
+outline:none;
+}
+
+.contact-form button{
+width:100%;
+padding:16px;
+border:none;
+background:var(--primary);
+color:white;
+font-weight:600;
+border-radius:12px;
+cursor:pointer;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:60px 0;
+}
+
+.footer-socials{
+margin:20px 0;
+}
+
+.footer-socials a{
+color:white;
+font-size:1.3rem;
+margin:0 12px;
+}
+
+.copyright{
+margin-top:20px;
+opacity:.8;
+}
+
+.floating-buttons{
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:999;
+}
+
+.floating{
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:1.6rem;
+color:white;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.25);
+}
+
+.messenger{
+background:#0084ff;
+}
+
+@media(max-width:768px){
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.cta h2{
+font-size:2rem;
+}
+
+.gallery-card img{
+height:240px;
+}
+
+}
+
+</style>
+
+<!-- MOBILE MENU SCRIPT -->
+
+<script>
+
+const menuBtn =
+document.querySelector('.menu-btn');
+
+const nav =
+document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click',()=>{
+
+if(nav.style.display==='flex'){
+
+nav.style.display='none';
+
+}else{
+
+nav.style.display='flex';
+nav.style.position='absolute';
+nav.style.top='80px';
+nav.style.left='0';
+nav.style.width='100%';
+nav.style.background='white';
+nav.style.flexDirection='column';
+nav.style.padding='20px';
+nav.style.boxShadow='0 10px 20px rgba(0,0,0,.1)';
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
